@@ -73,6 +73,7 @@
             </tr>
         </thead>
         <tbody>
+            
             @forelse($users as $user)
                 <tr>
                     <td>{{ $user->id }}</td>

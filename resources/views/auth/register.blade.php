@@ -60,7 +60,7 @@
                             <label for="role" class="form-label">Je suis un...</label>
                             {{-- J'utilise old('role') pour pré-sélectionner le rôle si la validation échoue. --}}
                             <select id="role" name="role" class="form-select @error('role') is-invalid @enderror" required>
-                                <option value="customer" {{ old('role') == 'customer' ? 'selected' : '' }}>Client</option>
+                                <option value="client" {{ old('role') == 'client' ? 'selected' : '' }}>Client</option>
                                 <option value="restaurateur" {{ old('role') == 'restaurateur' ? 'selected' : '' }}>Restaurateur</option>
                             </select>
                             @error('role') {{-- Si une erreur de validation spécifique au champ 'role' arrive, elle s'affiche ici. --}}
