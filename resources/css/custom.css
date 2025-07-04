@@ -1,0 +1,393 @@
+/* Je définis mes couleurs personnalisées en tant que variables CSS */
+:root {
+    --color-brand-orange: #E98074;
+    --color-brand-orange-dark: #D96C60;
+    --color-brand-green: #8A9A5B;
+    --color-brand-background: #F5F5DC;
+    --color-brand-text: #36454F;
+    --color-brand-text-light: #FFFFFF;
+
+    /* Je surcharge les variables de couleur de Bootstrap pour utiliser ma charte graphique */
+    --bs-primary: var(--color-brand-orange);
+    --bs-primary-rgb: 233, 128, 116;
+    --bs-secondary: var(--color-brand-green);
+    --bs-secondary-rgb: 138, 154, 91;
+    --bs-light: var(--color-brand-background);
+    --bs-light-rgb: 245, 245, 220;
+    --bs-dark: var(--color-brand-text);
+    --bs-dark-rgb: 54, 69, 79;
+}
+
+/* Styles généraux pour le corps de la page et le layout */
+html, body {
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+body {
+    background-color: var(--color-brand-background);
+    color: var(--color-brand-text);
+    font-family: sans-serif;
+    margin: 0;
+}
+
+/* Padding uniquement sur les pages publiques (avec navbar fixe) */
+body:not(.admin-body) {
+    padding-top: 80px;
+}
+
+/* Pages admin : layout en flex avec sidebar */
+body.admin-body {
+    display: flex;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Style pour la barre de navigation */
+nav.navbar {
+    background-color: var(--color-brand-text-light);
+}
+
+/* Sticky footer */
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+/* Styles pour les titres */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-brand-text);
+}
+
+/* Styles pour les liens */
+a {
+    color: var(--color-brand-orange);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color-brand-orange-dark);
+}
+
+/* Liens navbar */
+.navbar-light .navbar-nav .nav-link {
+    color: var(--color-brand-text);
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active {
+    color: var(--color-brand-orange);
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+/* Couleur du nom du restaurant dans le carrousel */
+.carousel-caption h5 {
+    color: var(--color-brand-text-light);
+}
+
+/* Navbar collapse desktop fix */
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-collapse {
+        display: flex !important;
+    }
+}
+
+/* Styles spécifiques pour les logos */
+.navbar-brand img {
+    height: 60px;
+    width: auto;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.main-logo-img {
+    height: 200px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Taille titre H1 accueil */
+.main-welcome-h1 {
+    font-size: 3rem;
+}
+
+/* Styles carrousel */
+.carousel-caption .btn {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    color: var(--color-brand-text-light);
+}
+
+.carousel-caption .btn:hover {
+    background-color: var(--bs-primary-dark);
+    border-color: var(--bs-primary-dark);
+}
+
+/* Carrousel indicateurs actifs */
+.carousel-indicators button.active {
+    background-color: var(--color-brand-orange);
+}
+
+/* Résultats de recherche */
+#search-results .list-group-item {
+    border-color: rgba(var(--bs-dark-rgb), 0.125);
+}
+
+#search-results .list-group-item.text-muted {
+    color: var(--color-brand-text) !important;
+}
+
+#search-results .list-group-item.text-danger {
+    color: #dc3545 !important;
+}
+
+/* Patch visibilité navbar mobile */
+.collapse {
+    visibility: visible !important;
+}
+
+/* Styles témoignages */
+.testimonial-img {
+    width: 100%;
+    max-width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: auto;
+}
+
+/* Social section footer */
+.social-section h5 {
+    color: white !important;
+}
+
+/* Séparateur de section */
+.section-divider {
+    border: none;
+    height: 2px;
+    background-color: #019931;
+    margin: 60px auto;
+    width: 80%;
+}
+
+/* Footer */
+.footer {
+    background-color: #34424A;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer h5 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.footer .icons a {
+    margin: 0 10px;
+    font-size: 1.8rem;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.footer .icons a:hover {
+    transform: scale(1.2);
+}
+
+.footer .copyright {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* ===============================
+   ========== ADMIN ==============
+   =============================== */
+
+body.admin-body {
+    display: flex;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 220px;
+    background-color: #343a40;
+    color: white;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 12px 20px;
+    transition: background-color 0.3s ease, padding-left 0.2s ease;
+}
+
+.sidebar a:hover {
+    background-color: #495057;
+    padding-left: 25px;
+}
+
+.main-content {
+    flex: 1;
+    padding: 30px;
+    background: #f8f9fa;
+}
+
+.card {
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.main-content h1 {
+    margin-top: 0;
+}
+
+.custom-header {
+    background-color: var(--color-brand-green);
+    color: white;
+}
+
+/* Boutons EatEase */
+.btn-eatease {
+    background-color: var(--color-brand-orange);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.btn-eatease:hover {
+    background-color: var(--color-brand-orange-dark);
+    transform: translateY(-2px);
+}
+
+.btn-eatease-secondary {
+    background-color: var(--color-brand-green);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.btn-eatease-secondary:hover {
+    background-color: #738048;
+    transform: translateY(-2px);
+}
+
+.btn-eatease-outline {
+    background-color: transparent;
+    color: var(--color-brand-orange);
+    border: 2px solid var(--color-brand-orange);
+    border-radius: 6px;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+}
+
+.btn-eatease-outline:hover {
+    background-color: var(--color-brand-orange);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-eatease-view {
+    background-color: white;
+    color: var(--color-brand-green);
+    border: 2px solid var(--color-brand-green);
+    border-radius: 6px;
+    padding: 6px 12px;
+    transition: all 0.3s ease;
+}
+
+.btn-eatease-view:hover {
+    background-color: var(--color-brand-green);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ======= AJOUTS RÉCENTS POUR AMÉLIORATION ACCUEIL ======= */
+
+/* Effet hover lift léger sur les cartes témoignages */
+.card.shadow-sm:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transition: 0.3s ease-in-out;
+}
+
+/* Style bouton recherche custom */
+.btn-custom {
+    background-color: var(--color-brand-orange);
+    color: white;
+    border-radius: 30px;
+    padding: 10px 25px;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-custom:hover {
+    background-color: var(--color-brand-orange-dark);
+    transform: translateY(-2px);
+}
+
+/* Amélioration visuelle carrousel */
+.carousel-inner {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-fade .carousel-item {
+    transition: opacity 0.5s ease;
+}
+
+.hero-section {
+    background-image: url('/public/images/hero-bg.png'); /* Ton image floue */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 100px 20px; /* Ajuste la hauteur et le padding horizontal si besoin */
+    position: relative;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    margin-bottom: 50px;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.1); /* Assombrit légèrement le fond pour rendre le texte plus lisible */
+    z-index: 1;
+}
+
+.hero-section > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Effet Zoom léger au survol des images de la galerie */
+.gallery-image {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
